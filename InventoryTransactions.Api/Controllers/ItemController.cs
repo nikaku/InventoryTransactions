@@ -12,11 +12,8 @@ namespace InventoryTransactions.Api.Controllers
     [ApiController]
     public class ItemController : ApiControllerBase
     {
-        private readonly IItemService _itemService;
-
-        public ItemController(IItemService itemService)
+        public ItemController()
         {
-            _itemService = itemService;
         }
 
         [HttpGet]
