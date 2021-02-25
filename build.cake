@@ -1,4 +1,4 @@
-var target = Argument("target", "Publish");
+var target = Argument("target", "Deploy");
 var configuration = Argument("configuration", "Release");
 var solutionfolder = "./";
 var outputFolder = "./artifacts";
@@ -42,6 +42,17 @@ Task("Publish")
             NoBuild = true,
             OutputDirectory = outputFolder
         });
+    });
+
+Task("Deploy")
+    .IsDependentOn("Publish")
+    .Does(() =>
+    {
+        var files = GetFiles("./artifacts/*");
+ 
+        var destination = @"C:\Users\nikak\OneDrive\Desktop\TestDeploy";
+        CopyFiles(files, destination, true);
+ 
     });
 
 RunTarget(target);
