@@ -13,6 +13,8 @@ jobs:
          os: [windows-latest, ubuntu-latest]
 
     steps:
+    - name: Get the sources
+      uses: actions/checkout@v1
     - name: Run a specific Cake script
       uses: ./
       with:
