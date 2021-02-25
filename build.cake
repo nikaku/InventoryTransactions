@@ -1,4 +1,4 @@
-var target = Argument("target", "Deploy");
+var target = Argument("target", "Publish");
 var configuration = Argument("configuration", "Release");
 var solutionfolder = "./";
 var outputFolder = "./artifacts";
