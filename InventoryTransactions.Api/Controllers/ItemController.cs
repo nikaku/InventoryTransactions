@@ -1,12 +1,10 @@
-﻿using InventoryTransactions.Application.Interfaces;
+﻿using InventoryTransactions.Application.Commands;
+using InventoryTransactions.Application.Dtos;
+using InventoryTransactions.Application.Interfaces;
+using InventoryTransactions.Application.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Threading.Tasks;
-using InventoryTransactions.Application.Commands;
-using InventoryTransactions.Application.Dtos;
-using InventoryTransactions.Application.Queries;
-using InventoryTransactions.Domain.Entities.Item;
-using MediatR;
 
 namespace InventoryTransactions.Api.Controllers
 {
