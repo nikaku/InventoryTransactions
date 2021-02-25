@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+       matrix:
+         os: [windows-latest, ubuntu-latest]
+
+    steps:
+    - name: Run a specific Cake script
+      uses: ./
+      with:
+        script-path: build.cake
