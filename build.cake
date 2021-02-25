@@ -50,7 +50,7 @@ Task("Deploy")
     {
         var files = GetFiles("./artifacts/*");
  
-        var destination = @"C:\Users\nikak\OneDrive\Desktop\TestDeploy";
+        var destination = @"./TestDeploy";
         CopyFiles(files, destination, true);
  
     });
