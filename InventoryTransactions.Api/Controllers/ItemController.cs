@@ -1,6 +1,5 @@
 ﻿using InventoryTransactions.Application.Commands;
 using InventoryTransactions.Application.Dtos;
-using InventoryTransactions.Application.Interfaces;
 using InventoryTransactions.Application.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -12,15 +11,12 @@ namespace InventoryTransactions.Api.Controllers
     [ApiController]
     public class ItemController : ApiControllerBase
     {
-        public ItemController()
-        {
-        }
 
         [HttpGet]
         [Route("GetItem")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetItem([FromQuery]GetItemQuery getItemCommand)
+        public async Task<IActionResult> GetItem([FromQuery] GetItemQuery getItemCommand)
         {
             var iteminDb = await Mediator.Send(getItemCommand);
 
