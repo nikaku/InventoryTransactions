@@ -11,7 +11,6 @@ namespace InventoryTransactions.Api.Controllers
     [ApiController]
     public class ItemController : ApiControllerBase
     {
-
         [HttpGet]
         [Route("GetItem")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
@@ -24,15 +23,16 @@ namespace InventoryTransactions.Api.Controllers
             {
                 return NotFound();
             }
+
             return Ok(iteminDb);
         }
 
         [HttpGet]
         [Route("GetItems")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetItems()
+        public async Task<IActionResult> GetItems([FromQuery]GetItemsQuery itemsQuery)
         {
-            var items = await Mediator.Send(new GetItemsQuery());
+            var items = await Mediator.Send(itemsQuery);
             return Ok(items);
         }
 

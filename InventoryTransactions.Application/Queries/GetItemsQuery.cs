@@ -10,6 +10,11 @@ namespace InventoryTransactions.Application.Queries
 {
     public class GetItemsQuery : IRequest<IEnumerable<GetItemDto>>
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Brand { get; set; }
+        public string SerialNumber { get; set; }
     }
 
     public class GetItemsQueryHandler : IRequestHandler<GetItemsQuery, IEnumerable<GetItemDto>>
@@ -24,7 +29,7 @@ namespace InventoryTransactions.Application.Queries
         }
         public async Task<IEnumerable<GetItemDto>> Handle(GetItemsQuery request, CancellationToken cancellationToken)
         {
-            var items = _itemService.GetItems();
+            var items = _itemService.GetItems(request);
             var itemDtos = _mapper.Map<IEnumerable<GetItemDto>>(items);
             return itemDtos;
         }
