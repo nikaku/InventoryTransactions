@@ -4,6 +4,7 @@ using InventoryTransactions.Core.Contracts.Interfaces;
 using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Domain.Entities.Item;
 using System.Collections.Generic;
+using InventoryTransactions.Application.Queries.Item;
 
 namespace InventoryTransactions.Application.Services
 {

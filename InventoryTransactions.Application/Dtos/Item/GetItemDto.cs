@@ -1,10 +1,8 @@
-﻿using AutoMapper;
-using InventoryTransactions.Application.Mappings;
-using InventoryTransactions.Domain.Entities.Item;
+﻿using InventoryTransactions.Application.Mappings;
 
-namespace InventoryTransactions.Application.Dtos
+namespace InventoryTransactions.Application.Dtos.Item
 {
-    public class GetItemDto : IMapFrom<Item>
+    public class GetItemDto : IMapFrom<Domain.Entities.Item.Item>
     {
         public int Id { get; set; }
         public string Name { get; set; }

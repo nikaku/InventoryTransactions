@@ -3,10 +3,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using InventoryTransactions.Application.Dtos;
+using InventoryTransactions.Application.Dtos.Item;
 using InventoryTransactions.Application.Interfaces;
 using MediatR;
 
-namespace InventoryTransactions.Application.Queries
+namespace InventoryTransactions.Application.Queries.Item
 {
     public class GetItemsQuery : IRequest<IEnumerable<GetItemDto>>
     {

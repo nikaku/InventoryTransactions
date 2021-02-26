@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using InventoryTransactions.Application.Dtos;
-using InventoryTransactions.Application.Interfaces;
-using InventoryTransactions.Domain.Entities.Item;
-using MediatR;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
+using InventoryTransactions.Application.Dtos;
+using InventoryTransactions.Application.Dtos.Item;
+using InventoryTransactions.Application.Interfaces;
+using MediatR;
 
-namespace InventoryTransactions.Application.Commands
+namespace InventoryTransactions.Application.Commands.Item
 {
     public class CreateItemCommand : IRequest<GetItemDto>
     {
@@ -29,8 +29,8 @@ namespace InventoryTransactions.Application.Commands
 
         public async Task<GetItemDto> Handle(CreateItemCommand request, CancellationToken cancellationToken)
         {
-            var item = _itemService.AddItem(
-                new Item
+            var itemInDb = _itemService.AddItem(
+                new Domain.Entities.Item.Item
                 {
                     Brand = request.Brand,
                     Description = request.Description,
@@ -38,7 +38,7 @@ namespace InventoryTransactions.Application.Commands
                     SerialNumber = request.SerialNumber
                 });
 
-            var itemDto = _mapper.Map<GetItemDto>(item);
+            var itemDto = _mapper.Map<GetItemDto>(itemInDb);
             return itemDto;
         }
     }

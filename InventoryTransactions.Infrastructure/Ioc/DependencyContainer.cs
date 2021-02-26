@@ -1,7 +1,9 @@
 ﻿using System.Reflection;
 using AutoMapper.Configuration;
 using InventoryTransactions.Application.Commands;
+using InventoryTransactions.Application.Commands.Item;
 using InventoryTransactions.Application.Dtos;
+using InventoryTransactions.Application.Dtos.Item;
 using InventoryTransactions.Application.Interfaces;
 using InventoryTransactions.Application.Queries;
 using InventoryTransactions.Application.Services;

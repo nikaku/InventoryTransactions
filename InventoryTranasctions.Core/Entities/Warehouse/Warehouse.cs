@@ -1,4 +1,4 @@
-﻿namespace InventoryTransactions.Core.Entities.Warehouse
+﻿namespace InventoryTransactions.Domain.Entities.Warehouse
 {
     public class Warehouse
     {

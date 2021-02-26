@@ -4,6 +4,9 @@ using InventoryTransactions.Application.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Threading.Tasks;
+using InventoryTransactions.Application.Commands.Item;
+using InventoryTransactions.Application.Dtos.Item;
+using InventoryTransactions.Application.Queries.Item;
 
 namespace InventoryTransactions.Api.Controllers
 {
@@ -15,9 +18,9 @@ namespace InventoryTransactions.Api.Controllers
         [Route("GetItem")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetItem([FromQuery] GetItemQuery getItemCommand)
+        public async Task<IActionResult> GetItem([FromQuery] GetItemQuery getItemQuery)
         {
-            var iteminDb = await Mediator.Send(getItemCommand);
+            var iteminDb = await Mediator.Send(getItemQuery);
 
             if (iteminDb == null)
             {
@@ -30,20 +33,20 @@ namespace InventoryTransactions.Api.Controllers
         [HttpGet]
         [Route("GetItems")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetItems([FromQuery]GetItemsQuery itemsQuery)
+        public async Task<IActionResult> GetItems([FromQuery]GetItemsQuery getItemsQuery)
         {
-            var items = await Mediator.Send(itemsQuery);
+            var items = await Mediator.Send(getItemsQuery);
             return Ok(items);
         }
 
         [HttpPost]
         [Route("CreateItem")]
         [ProducesResponseType(typeof(GetItemDto), (int)HttpStatusCode.Accepted)]
-        public async Task<IActionResult> CreateItem(CreateItemCommand item)
+        public async Task<IActionResult> CreateItem(CreateItemCommand createItemCommand)
         {
-            var res = await Mediator.Send(item);
+            var res = await Mediator.Send(createItemCommand);
 
-            return CreatedAtAction("GetItem", new { id = res.Id }, res);
+            return CreatedAtAction(nameof(GetItem), new { id = res.Id }, res);
         }
     }
 }
