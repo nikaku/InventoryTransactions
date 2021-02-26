@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using InventoryTransactions.Core.Contracts.Interfaces;
 using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
+using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Infrastructure.Data.Implementations.Repositories;
 using Microsoft.EntityFrameworkCore;
 

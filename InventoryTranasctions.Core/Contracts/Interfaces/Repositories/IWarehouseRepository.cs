@@ -1,8 +1,10 @@
-﻿using InventoryTransactions.Domain.Entities.Warehouse;
+﻿using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
+using InventoryTransactions.Domain.Entities.Warehouse;
 
-namespace InventoryTransactions.Core.Contracts.Interfaces.Repositories
+namespace InventoryTransactions.Domain.Contracts.Interfaces.Repositories
 {
     public interface IWarehouseRepository : IRepository<Warehouse>
     {
+       
     }
 }

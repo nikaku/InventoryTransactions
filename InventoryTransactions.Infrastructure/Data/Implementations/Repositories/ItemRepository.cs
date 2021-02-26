@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
+using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Domain.Entities.Item;
 
 namespace InventoryTransactions.Infrastructure.Data.Implementations.Repositories

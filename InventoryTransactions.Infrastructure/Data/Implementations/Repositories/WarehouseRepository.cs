@@ -1,4 +1,5 @@
 ﻿using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
+using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Domain.Entities.Warehouse;
 
 namespace InventoryTransactions.Infrastructure.Data.Implementations.Repositories

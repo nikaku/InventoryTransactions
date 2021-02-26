@@ -13,7 +13,7 @@ namespace InventoryTransactions.Api.Controllers
         [Route("Reciept")]
         [ProducesResponseType((int)HttpStatusCode.Accepted)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> CreateReciept(CreateRecieptCommand createRecieptCommand)
+        public async Task<IActionResult> CreateReciept(CreateReceiptCommand createReceiptCommand)
         {
             return Ok();
         }

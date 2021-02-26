@@ -9,6 +9,7 @@ using InventoryTransactions.Application.Queries;
 using InventoryTransactions.Application.Services;
 using InventoryTransactions.Core.Contracts.Interfaces;
 using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
+using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Infrastructure.Data.Config;
 using InventoryTransactions.Infrastructure.Data.Implementations;
 using InventoryTransactions.Infrastructure.Data.Implementations.Repositories;

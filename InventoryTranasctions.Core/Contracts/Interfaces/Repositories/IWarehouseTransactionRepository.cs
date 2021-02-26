@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
-using InventoryTransactions.Application.Commands.WarehouseTransactions;
+using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Domain.Entities.Warehouse;
 
-namespace InventoryTransactions.Application.Interfaces
+namespace InventoryTransactions.Domain.Contracts.Interfaces.Repositories
 {
-    public interface IWarehouseTransactionService
+    public interface IWarehouseTransactionRepository : IRepository<WarehouseTransaction>
     {
         WarehouseTransaction GetTransaction(int id);
         IEnumerable<WarehouseTransaction> GetTransactions(int itemId, int warehouseId);
         int GetCumulativeQuantity(int itemId);
         int GetCumulativeQuantityOnWarehouse(int itemId, int warehouseId);
-        void Issue(CreateIssueCommand issueCommand);
-        void Receipt(CreateReceiptCommand receiptCommand);
+        void Issue(int itemId, int warehouseId, int quantity);
+        void Receipt(int itemId, int warehouseId, int quantity);
     }
 }

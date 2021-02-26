@@ -1,6 +1,7 @@
-﻿using InventoryTransactions.Domain.Entities.Item;
+﻿using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
+using InventoryTransactions.Domain.Entities.Item;
 
-namespace InventoryTransactions.Core.Contracts.Interfaces.Repositories
+namespace InventoryTransactions.Domain.Contracts.Interfaces.Repositories
 {
     public interface IItemRepository : IRepository<Item>
     {
