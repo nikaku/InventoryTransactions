@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
+using InventoryTransactions.Application.Commands.WarehouseTransactions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryTransactions.Api.Controllers
@@ -8,13 +9,13 @@ namespace InventoryTransactions.Api.Controllers
     [ApiController]
     public class WarehouseTransactionsController : ApiControllerBase
     {
-        //[HttpPost]
-        //[Route("Reciept")]
-        //[ProducesResponseType((int) HttpStatusCode.Accepted)]
-        //[ProducesResponseType((int) HttpStatusCode.BadRequest)]
-        //public async Task<IActionResult> CreateReciept(CreateRecieptCommand)
-        //{
-        //    return Ok();
-        //}
+        [HttpPost]
+        [Route("Reciept")]
+        [ProducesResponseType((int)HttpStatusCode.Accepted)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> CreateReciept(CreateRecieptCommand createRecieptCommand)
+        {
+            return Ok();
+        }
     }
 }
