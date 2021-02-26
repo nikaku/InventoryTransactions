@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using InventoryTransactions.Application.Commands.WarehouseTransactions;
 using InventoryTransactions.Application.Interfaces;
+using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Domain.Entities.Warehouse;
 
 namespace InventoryTransactions.Application.Services
 {
     public class WarehouseTransactionService : IWarehouseTransactionService
     {
-        public WarehouseTransactionService(warehousetransactionReposi)
+        private readonly IWarehouseTransactionRepository _warehouseTransactionRepository;
+
+        public WarehouseTransactionService(IWarehouseTransactionRepository warehouseTransactionRepository)
         {
-            
+            _warehouseTransactionRepository = warehouseTransactionRepository;
         }
 
         public WarehouseTransaction GetTransaction(int id)
