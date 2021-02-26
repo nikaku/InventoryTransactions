@@ -1,8 +1,7 @@
-﻿using System.Threading.Tasks;
-using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
-using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
+﻿using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
+using System.Threading.Tasks;
 
-namespace InventoryTransactions.Core.Contracts.Interfaces
+namespace InventoryTransactions.Domain.Contracts.Interfaces
 {
 
     public interface IUnitOfWork
@@ -11,6 +10,7 @@ namespace InventoryTransactions.Core.Contracts.Interfaces
         Task SaveChangesAsync();
         IItemRepository ItemRepository { get; }
         IWarehouseRepository WarehouseRepository { get; }
+        IWarehouseTransactionRepository WarehouseTransactionRepository { get; }
     }
 
 }

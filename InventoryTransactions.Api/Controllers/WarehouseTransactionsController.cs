@@ -1,7 +1,7 @@
-﻿using System.Net;
-using System.Threading.Tasks;
-using InventoryTransactions.Application.Commands.WarehouseTransactions;
+﻿using InventoryTransactions.Application.Commands.WarehouseTransactions;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace InventoryTransactions.Api.Controllers
 {
@@ -10,11 +10,22 @@ namespace InventoryTransactions.Api.Controllers
     public class WarehouseTransactionsController : ApiControllerBase
     {
         [HttpPost]
-        [Route("Reciept")]
+        [Route("Receipt")]
         [ProducesResponseType((int)HttpStatusCode.Accepted)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> CreateReciept(CreateReceiptCommand createReceiptCommand)
+        public async Task<IActionResult> CreateReceipt(CreateReceiptCommand createReceiptCommand)
         {
+           var res = await Mediator.Send(createReceiptCommand);
+           return Ok();
+        }
+
+        [HttpPost]
+        [Route("Issue")]
+        [ProducesResponseType((int)HttpStatusCode.Accepted)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> CreateIssue(CreateIssueCommand createIssueCommand)
+        {
+            var res = await Mediator.Send(createIssueCommand);
             return Ok();
         }
     }

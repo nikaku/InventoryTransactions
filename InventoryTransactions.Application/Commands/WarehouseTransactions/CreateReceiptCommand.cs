@@ -15,18 +15,18 @@ namespace InventoryTransactions.Application.Commands.WarehouseTransactions
         public DateTime PostingDate { get; set; }
     }
 
-    public class CreateRecieptCommandHandler : IRequestHandler<CreateReceiptCommand, bool>
-    {
-        private readonly IWarehouseTransactionService _transactionService;
+    //public class CreateRecieptCommandHandler : IRequestHandler<CreateReceiptCommand, bool>
+    //{
+    //    private readonly IWarehouseTransactionService _transactionService;
 
-        public CreateRecieptCommandHandler(IWarehouseTransactionService transactionService)
-        {
-            _transactionService = transactionService;
-        }
-        public async Task<bool> Handle(CreateReceiptCommand request, CancellationToken cancellationToken)
-        {
-            _transactionService.Receipt(request);
-            return true;
-        }
-    }
+    //    public CreateRecieptCommandHandler(IWarehouseTransactionService transactionService)
+    //    {
+    //        _transactionService = transactionService;
+    //    }
+    //    public async Task<bool> Handle(CreateReceiptCommand request, CancellationToken cancellationToken)
+    //    {
+    //        _transactionService.Receipt(request);
+    //        return true;
+    //    }
+    //}
 }

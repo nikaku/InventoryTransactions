@@ -1,9 +1,8 @@
-﻿using System;
+﻿using InventoryTransactions.Application.Interfaces;
+using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using InventoryTransactions.Application.Interfaces;
-using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
-using MediatR;
 
 namespace InventoryTransactions.Application.Commands.WarehouseTransactions
 {
@@ -16,18 +15,18 @@ namespace InventoryTransactions.Application.Commands.WarehouseTransactions
         public DateTime PostingDate { get; set; }
     }
 
-    public class CreateIssueCommandHandler : IRequestHandler<CreateIssueCommand, bool>
-    {
-        private readonly IWarehouseTransactionService _warehouseTransactionService;
+    //public class CreateIssueCommandHandler : IRequestHandler<CreateIssueCommand, bool>
+    //{
+    //    private readonly IWarehouseTransactionService _warehouseTransactionService;
 
-        public CreateIssueCommandHandler(IWarehouseTransactionService warehouseTransactionService)
-        {
-            _warehouseTransactionService = warehouseTransactionService;
-        }
-        public async Task<bool> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
-        {
-            _warehouseTransactionService.Issue(request);
-            return true;
-        }
-    }
+    //    public CreateIssueCommandHandler(IWarehouseTransactionService warehouseTransactionService)
+    //    {
+    //        _warehouseTransactionService = warehouseTransactionService;
+    //    }
+    //    public async Task<bool> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
+    //    {
+    //        _warehouseTransactionService.Issue(request);
+    //        return true;
+    //    }
+    //}
 }

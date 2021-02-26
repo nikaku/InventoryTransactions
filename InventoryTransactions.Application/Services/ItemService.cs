@@ -5,6 +5,7 @@ using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Domain.Entities.Item;
 using System.Collections.Generic;
 using InventoryTransactions.Application.Queries.Item;
+using InventoryTransactions.Domain.Contracts.Interfaces;
 using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
 
 namespace InventoryTransactions.Application.Services

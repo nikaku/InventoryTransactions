@@ -7,6 +7,7 @@ using InventoryTransactions.Application.Interfaces;
 using InventoryTransactions.Application.Queries.Warehouse;
 using InventoryTransactions.Core.Contracts.Interfaces;
 using InventoryTransactions.Core.Contracts.Interfaces.Repositories;
+using InventoryTransactions.Domain.Contracts.Interfaces;
 using InventoryTransactions.Domain.Contracts.Interfaces.Repositories;
 using InventoryTransactions.Domain.Entities.Warehouse;
 
