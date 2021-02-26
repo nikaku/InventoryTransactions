@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InventoryTransactions.Application.Queries.Warehouse;
-using InventoryTransactions.Core.Entities.Warehouse;
 using InventoryTransactions.Domain.Entities.Warehouse;
 
 namespace InventoryTransactions.Application.Interfaces
