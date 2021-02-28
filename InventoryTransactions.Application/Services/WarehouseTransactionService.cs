@@ -51,10 +51,12 @@ namespace InventoryTransactions.Application.Services
 
             if (issueCommand.Quantity <= 0)
             {
-                throw new InvalidOperationException("Quantity Must Be Greater Then 0");
+                throw new InvalidEnumArgumentException("Quantity Must Be Greater Then 0");
             }
 
-            if (issueCommand.ItemId == 0)
+            var item = _itemRepository.Get(issueCommand.ItemId);
+
+            if (issueCommand.ItemId == 0 || item == null)
             {
                 throw new InvalidEnumArgumentException("Item Not Exists");
             }
@@ -114,7 +116,7 @@ namespace InventoryTransactions.Application.Services
                 });
 
                 issueCommand.Quantity = -remainder;
-            } 
+            }
 
             _unitOfWork.SaveChanges();
         }
