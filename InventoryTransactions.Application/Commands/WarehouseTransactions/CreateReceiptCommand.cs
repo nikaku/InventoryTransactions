@@ -6,7 +6,7 @@ using MediatR;
 
 namespace InventoryTransactions.Application.Commands.WarehouseTransactions
 {
-    public class CreateReceiptCommand : IRequest<bool>
+    public class CreateReceiptCommand : IRequest
     {
         public int WarehouseId { get; set; }
         public int ItemId { get; set; }
@@ -15,18 +15,18 @@ namespace InventoryTransactions.Application.Commands.WarehouseTransactions
         public DateTime PostingDate { get; set; }
     }
 
-    //public class CreateRecieptCommandHandler : IRequestHandler<CreateReceiptCommand, bool>
-    //{
-    //    private readonly IWarehouseTransactionService _transactionService;
+    public class CreateRecieptCommandHandler : IRequestHandler<CreateReceiptCommand, Unit>
+    {
+        private readonly IWarehouseTransactionService _transactionService;
 
-    //    public CreateRecieptCommandHandler(IWarehouseTransactionService transactionService)
-    //    {
-    //        _transactionService = transactionService;
-    //    }
-    //    public async Task<bool> Handle(CreateReceiptCommand request, CancellationToken cancellationToken)
-    //    {
-    //        _transactionService.Receipt(request);
-    //        return true;
-    //    }
-    //}
+        public CreateRecieptCommandHandler(IWarehouseTransactionService transactionService)
+        {
+            _transactionService = transactionService;
+        }
+        public async Task<Unit> Handle(CreateReceiptCommand request, CancellationToken cancellationToken)
+        {
+            _transactionService.Receipt(request);
+            return Unit.Value;
+        }
+    }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryTransactions.Application.Commands.WarehouseTransactions
 {
-    public class CreateIssueCommand : IRequest<bool>
+    public class CreateIssueCommand : IRequest
     {
         public int WarehouseId { get; set; }
         public int ItemId { get; set; }
@@ -15,18 +15,18 @@ namespace InventoryTransactions.Application.Commands.WarehouseTransactions
         public DateTime PostingDate { get; set; }
     }
 
-    //public class CreateIssueCommandHandler : IRequestHandler<CreateIssueCommand, bool>
-    //{
-    //    private readonly IWarehouseTransactionService _warehouseTransactionService;
+    public class CreateIssueCommandHandler : IRequestHandler<CreateIssueCommand, Unit>
+    {
+        private readonly IWarehouseTransactionService _warehouseTransactionService;
 
-    //    public CreateIssueCommandHandler(IWarehouseTransactionService warehouseTransactionService)
-    //    {
-    //        _warehouseTransactionService = warehouseTransactionService;
-    //    }
-    //    public async Task<bool> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
-    //    {
-    //        _warehouseTransactionService.Issue(request);
-    //        return true;
-    //    }
-    //}
+        public CreateIssueCommandHandler(IWarehouseTransactionService warehouseTransactionService)
+        {
+            _warehouseTransactionService = warehouseTransactionService;
+        }
+        public async Task<Unit> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
+        {
+            _warehouseTransactionService.Issue(request);
+            return Unit.Value;
+        }
+    }
 }

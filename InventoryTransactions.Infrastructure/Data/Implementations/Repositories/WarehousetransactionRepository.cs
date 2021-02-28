@@ -8,7 +8,7 @@ namespace InventoryTransactions.Infrastructure.Data.Implementations.Repositories
 {
     public class WarehousetransactionRepository : Repository<WarehouseTransaction>, IWarehouseTransactionRepository
     {
-        public WarehousetransactionRepository(DbContext context) : base(context)
+        public WarehousetransactionRepository(DataContext context) : base(context)
         {
         }
 
@@ -20,14 +20,15 @@ namespace InventoryTransactions.Infrastructure.Data.Implementations.Repositories
 
         public int GetCumulativeQuantity(int itemId)
         {
-            var whsTransactions = WarehouseTransactionContext.WarehouseTransactions.Where(i => i.ItemId == itemId);
-
-            return whsTransactions.Sum(x => x.CumulativeQuantity);
+            return WarehouseTransactionContext.WarehouseTransactions.Where(i => i.ItemId == itemId).Sum(w => w.Quantity);
         }
 
         public int GetCumulativeQuantityOnWarehouse(int itemId, int warehouseId)
         {
-            var lastTransactionOnWhs = WarehouseTransactionContext.WarehouseTransactions.LastOrDefault(i => i.ItemId == itemId && i.WarehouseId == warehouseId);
+            var lastTransactionOnWhs = WarehouseTransactionContext
+                    .WarehouseTransactions
+                    .OrderBy(x => x.Id)
+                    .LastOrDefault(i => i.ItemId == itemId && i.WarehouseId == warehouseId);
 
             return lastTransactionOnWhs?.CumulativeQuantity ?? 0;
         }
